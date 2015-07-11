@@ -10,7 +10,6 @@ from kivy.clock import Clock
 
 Builder.load_string("""
 <ScrollLabel>:
-    content_size: rv.ids.sv.viewport_size
     RecycleView:
         id: rv
         pos: root.pos

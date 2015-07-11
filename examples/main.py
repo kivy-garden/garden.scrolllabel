@@ -69,13 +69,6 @@ BoxLayout:
             text: "Right"
             on_press: sl.halign = "right"
 
-    BoxLayout:
-        size_hint_y: None
-        height: "32sp"
-
-        Label:
-            text: "Len: {} - Size: {}".format(len(sl.text), sl.content_size)
-
 """
 
 
