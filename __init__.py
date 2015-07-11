@@ -61,7 +61,6 @@ class ScrollLabel(Widget):
         self._trigger_refresh_label()
 
     def refresh_label(self, *args):
-        print "refresh_label"
         lcls = CoreMarkupLabel if self.markup else CoreLabel
         label = lcls(text=self.text,
                      text_size=(self.width, None),
