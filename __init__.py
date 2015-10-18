@@ -44,7 +44,7 @@ class ScrollLabel(Widget):
 
     text = StringProperty()
     font_size = NumericProperty("14sp")
-    font_name = StringProperty("DroidSans")
+    font_name = StringProperty("Roboto")
     halign = OptionProperty("center", options=("left", "center", "right"))
     line_height = NumericProperty("")
     markup = BooleanProperty(False)
