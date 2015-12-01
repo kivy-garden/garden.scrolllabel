@@ -1,5 +1,4 @@
 from kivy.core.text import Label as CoreLabel
-from kivy.core.text.markup import MarkupLabel as CoreMarkupLabel
 from kivy.garden.recycleview import RecycleView
 from kivy.properties import (NumericProperty, StringProperty, OptionProperty,
                              BooleanProperty, AliasProperty)
@@ -57,16 +56,18 @@ class ScrollLabel(Widget):
             font_size=self._trigger_refresh_label,
             font_name=self._trigger_refresh_label,
             halign=self._trigger_refresh_label,
-            width=self._trigger_refresh_label)
+            width=self._trigger_refresh_label,
+            markup=self._trigger_refresh_label)
         self._trigger_refresh_label()
 
     def refresh_label(self, *args):
-        lcls = CoreMarkupLabel if self.markup else CoreLabel
+        lcls = CoreLabel
         label = lcls(text=self.text,
                      text_size=(self.width, None),
                      halign=self.halign,
                      font_size=self.font_size,
-                     font_name=self.font_name)
+                     font_name=self.font_name,
+                     markup=self.markup)
         label.resolve_font_name()
         label.render()
 
@@ -74,6 +75,7 @@ class ScrollLabel(Widget):
         font_name = self.font_name
         font_size = self.font_size
         halign = self.halign
+        markup = self.markup
         data = ({
             "index": index,
             "viewclass": "ScrollLabelPart",
@@ -83,6 +85,7 @@ class ScrollLabel(Widget):
             "height": line.h,
             "size_hint_y": None,
             "halign": halign,
+            "markup": markup,
         } for index, line in enumerate(label._cached_lines))
         self.ids.rv.data = data
 
